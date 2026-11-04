@@ -1,5 +1,9 @@
 ﻿# Dental Clinic · العيادة السنية
 
+**[Live Website — الموقع المباشر](https://mosa-b-alibrahim.github.io/dental-clinic-website/)**
+
+![Dental Clinic website preview](https://raw.githubusercontent.com/mosa-b-alibrahim/dental-clinic-website/main/hero.png)
+
 Arabic/English clinic website for **Dr. Mousa Bashar Al Ibrahim** in Al-Tah village. Built with React, TypeScript and Vite, using plain CSS, Lucide icons and Motion.
 
 The site includes five service groups, the original doctor and clinic photographs, an accessible gallery viewer, and one combined contact/appointment section. Appointments open a WhatsApp draft and require confirmation from the clinic. No patient information is saved by the website.
