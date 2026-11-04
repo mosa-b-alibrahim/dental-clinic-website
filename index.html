@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#103E72" />
+    <style>
+      html {
+        background: #f4f9fc;
+      }
+      html[data-theme='dark'] {
+        background: #0b1424;
+      }
+    </style>
+    <script>
+      // Resolve the theme before the first paint, even when storage is unavailable.
+      (() => {
+        let preference = 'system';
+        try {
+          const saved = localStorage.getItem('clinic-theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch {}
+        const theme =
+          preference === 'system'
+            ? matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : preference;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.themePreference = preference;
+        document.documentElement.style.colorScheme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', theme === 'dark' ? '#0b1424' : '#103e72');
+      })();
+    </script>
+    <meta
+      name="description"
+      content="العيادة السنية في قرية التح — الدكتور موسى بشار الإبراهيم. خدمات طب الأسنان وحجز المواعيد عبر واتساب، يومياً من 9 صباحاً حتى 9 مساءً."
+    />
+    <meta property="og:title" content="العيادة السنية | Dental Clinic" />
+    <meta
+      property="og:description"
+      content="ابتسامتك تبدأ من هنا — Your Smile Starts Here. قرية التح، ريف إدلب الجنوبي."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%BASE_URL%images/clinic-exterior.jpg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <title>العيادة السنية | الدكتور موسى بشار الإبراهيم</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
